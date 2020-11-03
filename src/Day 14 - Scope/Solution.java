@@ -20,20 +20,38 @@ class Difference {
     // Add your code here
     public void computeDifference(){
         int sum = 0;
+        maximumDifference = 0;
+        
 
         for(int i = 0; i<elements.length;i++){
-            int a = elements[i];
-            int b = elements[i+1];
-            
-            if((a-b) < 0){
-                sum = -(a-b);
-                
-            }
-            else{
-                sum = a-b;
-            }
-        }
 
+            for(int j = 1; j<elements.length;j++){
+
+                sum = elements [i] - elements[j];
+
+                if( sum < 0){
+
+                    sum = -sum;
+
+                    if( maximumDifference < sum ){
+
+                        maximumDifference = sum;
+                    }
+
+                    sum=0;
+                }
+                else{
+                    
+                    if( maximumDifference < sum ){
+                        maximumDifference = sum;
+
+                    }
+
+                    sum=0;
+
+                }
+            }      
+        }
 
     }
 
